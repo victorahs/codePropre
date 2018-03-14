@@ -4,12 +4,12 @@ import java.util.List;
 
 public class ZoneCarnivore {
 
-	private List<String> types;
+	private List<Types> types;
 	private List<String> noms;
-	private List<String> comportements;
+	private List<Comportement> comportements;
 	
-	public void addAnimal(String typeAnimal, String nomAnimal, String comportement) {
-		types.add(typeAnimal);
+	public void addAnimal(Types type, String nomAnimal, Comportement comportement) {
+		types.add(type);
 		noms.add(nomAnimal);
 		comportements.add(comportement);
 	}

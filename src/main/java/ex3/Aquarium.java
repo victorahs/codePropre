@@ -1,26 +1,25 @@
 package ex3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Aquarium {
 
-	private List<String> types;
-	private List<String> noms;
-	private List<String> comportements;
-	
-	public void addAnimal(String typeAnimal, String nomAnimal, String comportement) {
-		types.add(typeAnimal);
-		noms.add(nomAnimal);
-		comportements.add(comportement);
-	}
-	
-	public void afficherListeAnimaux(){
-		for (String nom: noms){
-			System.out.println(nom);
+	private List<Animal> animalZone = new ArrayList<>();
+
+	public void addAnimal(Animal animal) {
+		if (animal.getType().equals(Types.POISSON)) {
+			animalZone.add(animal);
 		}
 	}
-	
-	public double calculerKgsNourritureParJour(){
-		return noms.size() * 0.2;
+
+	public void afficherListeAnimaux() {
+		for (Animal animal : animalZone) {
+			System.out.println(animal.getNom());
+		}
+	}
+
+	public double calculerKgsNourritureParJour() {
+		return animalZone.size() * 0.2;
 	}
 }
