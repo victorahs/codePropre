@@ -2,12 +2,26 @@ package ex3;
 
 public class Animal {
 
+	/** nom : String
+	  
+	 */
 	private String nom;
 
+	/** comportement : Comportement
+	 * 
+	 */
 	private Comportement comportement;
 
+	/** type : Types
+	 * 
+	 */
 	private Types type;
 
+	/**
+	 * @param nom nom 
+	 * @param comportement comportement
+	 * @param type type
+	 */
 	public Animal(String nom, Comportement comportement, Types type) {
 		// TODO Auto-generated constructor stub
 

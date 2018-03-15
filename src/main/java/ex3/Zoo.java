@@ -1,50 +1,86 @@
 package ex3;
 
-import com.sun.glass.ui.CommonDialogs.Type;
 
+
+
+/**
+ * @author ETY0005
+ * Classe zoo
+ *
+ */
 public class Zoo {
 
+	/** nom : String
+	 * 
+	 */
 	private String nom;
+	/** savaneAfricaine : SavaneAfricaine
+	  */
 	private SavaneAfricaine savaneAfricaine;
+	/** zoneCarnivore : ZoneCarnivore
+	 * 
+	 */
 	private ZoneCarnivore zoneCarnivore;
+	/** fermeReptile : FermeReptile
+	 * 
+	 */
 	private FermeReptile fermeReptile;
+	/** aquarium : Aquarium
+	 * 
+	 */
 	private Aquarium aquarium;
-	
-	public Zoo(String nom){
+
+	/**Constructeur
+	 * @param nom nom du zoo
+	 */
+	public Zoo(String nom) {
 		this.nom = nom;
+		savaneAfricaine = new SavaneAfricaine();
+		zoneCarnivore = new ZoneCarnivore();
+		fermeReptile = new FermeReptile();
+		aquarium = new Aquarium();
 	}
-	
-	public void addAnimal(Animal animal){
-		if (animal.getType().equals(Types.MAMMIFERE) && animal.getComportement().equals(Comportement.CARNIVORE)){
-			zoneCarnivore.addAnimal(animal.getType(), animal.getNom(), animal.getComportement());
-		}
-		else if (animal.getType().equals(Types.MAMMIFERE) && animal.getComportement().equals(Comportement.HERBIVORE)){
-			savaneAfricaine.addAnimal(animal.getType(), animal.getNom(), animal.getComportement());
-		}
-		else if (animal.getType().equals(Types.REPTILE)){
+
+	/**Ajouter un animal dans le zoo
+	 * @param animal animal à ajouter
+	 */
+	public void addAnimal(Animal animal) {
+		if (animal.getType().equals(Types.MAMMIFERE) && animal.getComportement().equals(Comportement.CARNIVORE)) {
+			zoneCarnivore.addAnimal(animal);
+		} else if (animal.getType().equals(Types.MAMMIFERE)
+				&& animal.getComportement().equals(Comportement.HERBIVORE)) {
+			savaneAfricaine.addAnimal(animal);
+		} else if (animal.getType().equals(Types.REPTILE)) {
 			fermeReptile.addAnimal(animal);
-		}
-		else if (animal.getType().equals(Types.POISSON)){
+		} else if (animal.getType().equals(Types.POISSON)) {
 			aquarium.addAnimal(animal);
 		}
 	}
-	
-	public void afficherListeAnimaux(){
+
+	/**
+	 * Affichers les animaux présent dans la zone
+	 */
+	public void afficherListeAnimaux() {
 		savaneAfricaine.afficherListeAnimaux();
 		zoneCarnivore.afficherListeAnimaux();
 		fermeReptile.afficherListeAnimaux();
 		aquarium.afficherListeAnimaux();
 	}
 
-	/** Getter for nom
+	/**
+	 * Getter for nom
+	 * 
 	 * @return the nom
 	 */
 	public String getNom() {
 		return nom;
 	}
 
-	/** Setter
-	 * @param nom the nom to set
+	/**
+	 * Setter
+	 * 
+	 * @param nom
+	 *            the nom to set
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;

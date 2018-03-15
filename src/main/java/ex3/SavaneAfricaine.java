@@ -1,30 +1,45 @@
 package ex3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SavaneAfricaine {
 
-	private List<Types> types;
-	private List<String> noms;
-	private List<Comportement> comportements;
-	
-	public void addAnimal(Types type, String nomAnimal, Comportement comportement) {
-		types.add(type);
-		noms.add(nomAnimal);
-		comportements.add(comportement);
-	}
-	
-	public void afficherListeAnimaux(){
-		for (String nom: noms){
-			System.out.println(nom);
+	/** animalZone : List<Animal>
+	 * List d'animaux présent dans la zone
+	 * 
+	 */
+	private List<Animal> animalZone = new ArrayList<>();
+
+	/**Ajoute un animal présent dans la zone
+	 * @param animal animal
+	 */
+	public void addAnimal(Animal animal) {
+		if (animal.getType().equals(Comportement.HERBIVORE)) {
+			animalZone.add(animal);
 		}
 	}
-	
-	public int compterAnimaux(){
-		return noms.size();
+
+	/**Affiche la liste d'animaux présent dans la zone
+	 * 
+	 */
+	public void afficherListeAnimaux() {
+		for (Animal animal : animalZone) {
+			System.out.println(animal.getNom());
+		}
 	}
-	
-	public int calculerKgsNourritureParJour(){
-		return noms.size() * 10;
+
+	/**Comptes le nombre d'animaux présent dans la zone
+	 * @return
+	 */
+	public int compterAnimaux() {
+		return animalZone.size();
+	}
+
+	/**Calcule la quantité de nourriture en kilo par jours 
+	 * @return
+	 */
+	public int calculerKgsNourritureParJour() {
+		return animalZone.size() * 10;
 	}
 }
